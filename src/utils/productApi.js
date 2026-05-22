@@ -1,6 +1,7 @@
 import { getToken } from './api'
 
-const API_BASE = 'http://localhost:5000'
+// const API_BASE = 'http://localhost:5000'
+const API_BASE = 'http://44.222.172.166:5000'
 
 /**
  * Add a product variety and weight to the user's cart in the database.
