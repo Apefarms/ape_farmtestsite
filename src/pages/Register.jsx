@@ -32,7 +32,8 @@ export default function Register({ isOpen, onClose, onLoginSuccess }) {
     setLoading(true)
 
     try {
-      const res = await fetch(`${API_BASE}/api/auth/register`, {
+      // Change this line to target /auth exactly
+      const res = await fetch('http://44.222.172.166:5000/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
