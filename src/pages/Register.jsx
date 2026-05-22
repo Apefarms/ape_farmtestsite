@@ -13,7 +13,7 @@ export default function Register({ isOpen, onClose, onLoginSuccess }) {
   const [loading, setLoading] = useState(false)
 
   if (!isOpen) return null
-
+  const API_BASE = 'http://44.222.172.166:5000'
   const handleSubmit = async (e) => {
     e.preventDefault()
     setMessage('')
@@ -32,7 +32,7 @@ export default function Register({ isOpen, onClose, onLoginSuccess }) {
     setLoading(true)
 
     try {
-      const res = await fetch('http://44.222.172.166:5000', {
+      const res = await fetch(`${API_BASE}/api/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
