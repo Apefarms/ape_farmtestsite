@@ -33,7 +33,7 @@ export default function Register({ isOpen, onClose, onLoginSuccess }) {
 
     try {
       // Change this line to target /auth exactly
-      const res = await fetch('http://44.222.172.166:5000/auth', {
+      const res = await fetch('https://api.apefarms.in/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

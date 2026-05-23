@@ -1,7 +1,7 @@
 import { getToken, clearSession } from './api'
 
 // const API_BASE = 'http://localhost:5000'
-const API_BASE = 'http://44.222.172.166:5000'
+const API_BASE = 'https://api.apefarms.in'
 
 // Verify the stored token with the server
 // Returns { valid: true, user: {...} } or { valid: false }
