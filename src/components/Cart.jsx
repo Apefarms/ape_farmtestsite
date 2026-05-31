@@ -6,6 +6,18 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
     return sum + (price * item.quantity);
   }, 0);
 
+  const handleCheckout = () => {
+    let message = "Hi! I would like to place an order:\n\n";
+    items.forEach((item, index) => {
+      message += `${index + 1}. ${item.name} (${item.weight}) - Qty: ${item.quantity}\n`;
+    });
+    message += `\nSubtotal: ₹${subtotal}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/919042220439?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <>
       {/* Backdrop */}
@@ -103,7 +115,9 @@ export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemov
               <span className="text-2xl font-bold text-neutral-900">₹{subtotal}</span>
             </div>
             <div className="space-y-3">
-              <button className="w-full bg-neutral-900 text-white font-bold py-4 rounded-full shadow-lg hover:bg-neutral-800 transition-all active:scale-[0.98]">
+              <button 
+                onClick={handleCheckout}
+                className="w-full bg-neutral-900 text-white font-bold py-4 rounded-full shadow-lg hover:bg-neutral-800 transition-all active:scale-[0.98]">
                 Checkout Now
               </button>
               {/* <button 
