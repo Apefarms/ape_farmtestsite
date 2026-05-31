@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 export default function Cart({ isOpen, onClose, items, onUpdateQuantity, onRemoveItem }) {
   const subtotal = items.reduce((sum, item) => {
     const price = parseInt(item.price.replace('₹', '').replace('/kg', ''));
-    return sum + (price * item.quantity);
+    const weight = parseInt(item.weight) || 1;
+    return sum + (price * weight * item.quantity);
   }, 0);
 
   const handleCheckout = () => {
